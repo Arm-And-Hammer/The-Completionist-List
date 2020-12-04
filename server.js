@@ -7,7 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var env = require('dotenv').config();
+require('dotenv').config();
+require('config/database');
 
 var app = express();
 
