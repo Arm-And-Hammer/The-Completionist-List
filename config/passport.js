@@ -1,6 +1,6 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const Gamer = require('../models/gamer');
+const User = require('../models/user');
 
 passport.use(
   new GoogleStrategy(
@@ -12,11 +12,11 @@ passport.use(
     // The verify callback function
     function(accessToken, refreshToken, profile, cb) {
       // A user has logged in with OAuth...
-      Gamer.findOne({googleId: profile.id}).then(async function(user) {
+      User.findOne({googleId: profile.id}).then(async function(user) {
         if (user) return cb(null, user);
         // We have a new user via OAuth!
         try {
-          user = await Gamer.create({
+          user = await User.create({
             name: profile.displayName,
             googleId: profile.id,
             email: profile.emails[0].value,
