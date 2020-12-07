@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const reviewSchema = new Schema({
+const noteSchema = new Schema({
   content: {type: String, required: true},
-  rating: {type: Number, min: 1, max: 5, default: 5},
   user: {type: Schema.Types.ObjectId, ref: 'User'},
   userName: String,
   userAvatar: String
@@ -17,14 +16,10 @@ const gameSchema = new Schema({
     required: true
   },
   releaseDate: {
-    type: Number,
-    default: function () {
-      return new Date().getFullYear();
-    }
+    type: Date,
   },
   esrbRating: String,
-
-  reviews: [reviewSchema]
+  notes: [noteSchema]
 }, {
   timestamps: true
 });

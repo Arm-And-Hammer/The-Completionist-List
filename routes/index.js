@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  res.redirect('/movies');
+  res.redirect('/games');
 });
 
 router.get('/auth/google', passport.authenticate(
@@ -19,15 +19,15 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/movies',
-    failureMessage: '/movies'
+    successRedirect: '/games',
+    failureMessage: '/games'
   }
 ));
 
 // Logout
 router.get('/logout', function(req, res) {
   req.logout();
-  res.redirect('/movies');
+  res.redirect('/games');
 });
 
 
