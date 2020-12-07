@@ -22,12 +22,8 @@ const gameSchema = new Schema({
       return new Date().getFullYear();
     }
   },
-  mpaaRating: String,
-  cast: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Performer'
-  }],
-  nowShowing: { type: Boolean, default: false },
+  esrbRating: String,
+
   reviews: [reviewSchema]
 }, {
   timestamps: true
