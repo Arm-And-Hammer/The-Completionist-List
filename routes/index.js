@@ -7,6 +7,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'The Completionist List' });
 });
 
+router.get('/', function(req, res, next) {
+  res.redirect('/movies');
+});
+
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
