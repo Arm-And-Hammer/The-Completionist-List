@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<form id="edit-form" action="/games" method="POST">
+  <label>Title:</label>
+  <input type="text" name="title" value="<%= game.title %>">
+  <label>Release Date:</label>
+  <input type="text" name="releaseDate" value="<%= game.releaseDate %>">
+  <label>ESRB Rating</label>
+  <select name="esrbRating" value="<%= game.esrbRating %>">
+    <option value="E">E</option>
+    <option value="E+10">E+10</option>
+    <option value="T">T</option>
+    <option value="M">M</option>
+    <option value="AO">AO</option>
+    <option value="RP">RP</option>
+  </select>
+  <input type="submit" value="Edit Game">
+</form>
+
+<%- include('../partials/footer') %>

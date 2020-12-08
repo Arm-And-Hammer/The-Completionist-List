@@ -10,6 +10,8 @@
   <div>Rating: </div>
   <div><%= game.esrbRating %></div>
   <br></br>
+  <a href="/games/<%= game._id %>/edit">Edit Game</a>
+  <br></br>
 </section>
 
 <section id="Notes">
@@ -20,7 +22,7 @@
     <input type="submit" value="Add Note">
   </form>
 <% } %>
-
+<br></br>
 <% if (game.notes.length) { %>
   <table>
     <tbody>
@@ -39,7 +41,7 @@
       <% } %>
     </tbody>
   </table>
-
+  <br></br>
 </section>
 
 

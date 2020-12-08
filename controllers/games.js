@@ -14,7 +14,7 @@ module.exports = {
 function edit(req, res) {
   Game.findOne({_id: req.params.id, user:req.user._id}, function(err, game) {
     if (err || !game) return res.redirect('/games');
-    res.render('books/edit', {game});
+    res.render('games/edit', {game});
   });
 }
 
