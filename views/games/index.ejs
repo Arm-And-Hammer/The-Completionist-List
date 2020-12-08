@@ -4,18 +4,22 @@
     <tr>
       <th>Game name</th>
       <th>Release Date</th>
-      <th></th>
+      <th>ESRB Rating</th>
     </tr>
   </thead>
-  <!-- <tbody>
-    <% games.forEach(function(m) { %>
-      <tr>
-        <td><%= m.title %></td>
-        <td><%= m.releaseDate %></td>
-        <td><a href="/movies/<%= m._id %>">DETAILS</a></td>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
-   -->
+  <tbody>
+    <% if (games.length) { %>
+      
+    <% games.forEach(function(g) { %>
+        
+    <a href="/games/<%= g._id %>"> <%= g.title %> </a>
+        
+    <% }); %>
+      
+    <% } else { %>
+    <h1>You dont own any games.</h1>
+    <% } %>
+  </tbody>
+</table>
+  
 <%- include('../partials/footer') %>

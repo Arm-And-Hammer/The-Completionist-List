@@ -18,6 +18,9 @@ const gameSchema = new Schema({
   releaseDate: {
     type: Date,
   },
+  user: {
+    type: Schema.Types.ObjectId, ref: 'User'
+  },
   esrbRating: String,
   notes: [noteSchema]
 }, {
