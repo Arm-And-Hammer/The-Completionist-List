@@ -1,5 +1,3 @@
-
-const { NotExtended } = require('http-errors');
 const Game = require('../models/game');
 const render = require('../server');
 
@@ -8,8 +6,29 @@ module.exports = {
   show,
   new: newGame,
   create,
-  delete: deleteGame
+  delete: deleteGame,
+  edit,
+  update
 };
+
+function edit(req, res) {
+  Game.findOne({_id: req.params.id, user:req.user._id}, function(err, game) {
+    if (err || !game) return res.redirect('/games');
+    res.render('books/edit', {game});
+  });
+}
+
+function update(req, res) {
+  Game.findOneAndUpdate(
+    {_id: req.params.id, user: req.user._id},
+    req.body,
+    {new: true},
+    function(err, game) {
+      if (err || !game) return res.redirect('/games');
+      res.redirect(`games/${game._id}`);
+    }
+  );
+}
 
 function index(req, res) {
   Game.find({user: req.user._id}, function(err, games) {

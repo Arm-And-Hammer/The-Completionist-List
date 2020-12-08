@@ -11,6 +11,7 @@
   <div><%= game.esrbRating %></div>
   <br></br>
 </section>
+
 <section id="Notes">
 <% if (user) { %>
   <form id="add-notes" method="POST" action="/games/<%= game._id %>/notes">
@@ -23,16 +24,18 @@
 <% if (game.notes.length) { %>
   <table>
     <tbody>
+      <% game.notes.forEach(function(note) { %>
       <tr>
-        <td><%= game.content %></td>
+        <td><%= note.content %></td>
         <td>
-        <% if (user && user._id.equals(game.user)) { %>
-          <form action="/notes/<%= game._id %>?_method=DELETE" method="POST">
+        <% if (user && user._id.equals(note.user)) { %>
+          <form action="/notes/<%= note._id %>?_method=DELETE" method="POST">
             <button type="submit">X</button>
           </form>
         <% } %>
         </td>
       </tr>
+      <% }); %>
       <% } %>
     </tbody>
   </table>

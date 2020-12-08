@@ -9,6 +9,7 @@ var methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 var gamesRouter = require('./routes/games');
+var notesRouter = require('./routes/notes');
 
 require('dotenv').config();
 require('./config/database');
@@ -42,6 +43,7 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/games', gamesRouter);
+app.use('/', notesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

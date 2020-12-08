@@ -6,7 +6,7 @@ module.exports = {
 }
 
 function create(req, res) {
-    Game.findById(req.perams.id, function(err, game) {
+    Game.findById(req.params.id, function(err, game) {
         req.body.user = req.user._id;
         
         game.notes.push(req.body);
@@ -17,13 +17,13 @@ function create(req, res) {
 }
 
 function deleteNote(req, res, next) {
-    Game.findOne({'notes._id' : req.perams.id})
+    Game.findOne({'notes._id' : req.params.id})
      .then(function(game) {
-         const note = game.notes.id(req.perams.id);
-         if (!notes.user.equals(req.user._id)) return res.redirect(`/games/${game._id}`);
+         const note = game.notes.id(req.params.id);
+         if (!note.user.equals(req.user._id)) return res.redirect(`/games/${game._id}`);
          note.remove();
          game.save().then(function() {
-             res.redirect(`game/${game._id}`);
+             res.redirect(`/games/${game._id}`);
          });
      });
 }
