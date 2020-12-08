@@ -1,18 +1,51 @@
 <%- include('../partials/header') %>
 
-<section>
+<section id="Game Details">
   <div>Title: </div>
   <div><%= game.title %></div>
+  <br></br>
   <div>Release date: </div>
   <div><%= game.releaseDate %></div>
+  <br><br>
   <div>Rating: </div>
   <div><%= game.esrbRating %></div>
+  <br></br>
 </section>
-<% Game.forEach(function(g) { %>
-<% if (user && user._id.equals(g.user)) { %>
-  <form action="/games/<%= g._id %>?_method=DELETE" method="POST">
+<section id="Notes">
+<% if (user) { %>
+  <form id="add-notes" method="POST" action="/games/<%= game._id %>/notes">
+    <label for="notes">Notes:</label>
+    <textarea name="content"></textarea>
+    <input type="submit" value="Add Note">
+  </form>
+<% } %>
+
+<% if (game.notes.length) { %>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= game.content %></td>
+        <td>
+        <% if (user && user._id.equals(game.user)) { %>
+          <form action="/notes/<%= game._id %>?_method=DELETE" method="POST">
+            <button type="submit">X</button>
+          </form>
+        <% } %>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+</section>
+
+
+<% if (user && user._id.equals(game.user)) { %>
+  <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
     <button type="submit">Remove game</button>
   </form>
 <% } %>
-<% }); %>
+
+
+
 <%- include('../partials/footer') %>

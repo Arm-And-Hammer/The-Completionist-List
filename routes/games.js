@@ -7,5 +7,6 @@ router.get('/', isLoggedIn, gamesCtrl.index);
 router.get('/new', gamesCtrl.new);
 router.get('/:id', gamesCtrl.show);
 router.post('/', isLoggedIn, gamesCtrl.create);
+router.delete('/:id', isLoggedIn, gamesCtrl.delete);
 
 module.exports = router;
