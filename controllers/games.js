@@ -1,3 +1,5 @@
+
+const { NotExtended } = require('http-errors');
 const Game = require('../models/game');
 const render = require('../server');
 
@@ -5,7 +7,8 @@ module.exports = {
   index,
   show,
   new: newGame,
-  create
+  create,
+  delete: deleteGame
 };
 
 function index(req, res) {
@@ -28,8 +31,26 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  Game.findById(req.params.id)
-  res.render('games/show')
+  // const game = Game.findById(req.params.id)
+  // game.
+  res.render('games/show', {
+    game: Game.findById(req.params.id)
+  })
+}
+
+function deleteGame(req, res, next) {
+  Game.findOne({'games._id' : req.params.id})
+    .then(function(remove) {
+      const game = remove.games.id(req.params.id);
+      if (!game.user.equals(req.user._id)) return res.redirect('/')
+      game.remove();
+      games.save().then(function() {
+        res.redirect('/');
+      })
+      // .catch(function(err) {
+      //   return next(err);
+      // });
+    });
 }
 
 // function create(req, res) {

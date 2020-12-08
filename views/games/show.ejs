@@ -8,5 +8,11 @@
   <div>Rating: </div>
   <div><%= game.esrbRating %></div>
 </section>
-
+<% Game.forEach(function(g) { %>
+<% if (user && user._id.equals(g.user)) { %>
+  <form action="/games/<%= g._id %>?_method=DELETE" method="POST">
+    <button type="submit">Remove game</button>
+  </form>
+<% } %>
+<% }); %>
 <%- include('../partials/footer') %>
