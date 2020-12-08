@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<form id="edit-form" action="/games" method="POST">
+<form id="edit-form" action="/games/<%= game._id %>?_method=PUT" method="GET">
   <label>Title:</label>
   <input type="text" name="title" value="<%= game.title %>">
   <label>Release Date:</label>
@@ -14,7 +14,7 @@
     <option value="AO">AO</option>
     <option value="RP">RP</option>
   </select>
-  <input type="submit" value="Edit Game">
+  <input type="submit" value="Update Game">
 </form>
 
 <%- include('../partials/footer') %>
