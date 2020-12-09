@@ -22,10 +22,6 @@ a:hover {
   background-color: grey;
 }
 
-.title {
-  
-}
-
 #list {
   font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
   display: flex;

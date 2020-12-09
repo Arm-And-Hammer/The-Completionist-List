@@ -14,7 +14,7 @@ module.exports = {
 function edit(req, res) {
   Game.findOne({_id: req.params.id, user:req.user._id}, function(err, game) {
     if (err || !game) return res.redirect('/games');
-    res.render('games/edit', {game});
+    res.render('games/edit', {game, title: 'Edit Game'});
   });
 }
 
@@ -44,18 +44,15 @@ function create(req, res) {
   const game = new Game(req.body);
   game.user = req.user._id;
   game.save(function(err){
-    if (err) return render('/games/new');
+    if (err) return render('/games/new', { title: game });
     res.redirect('/games');
   });
 }
 
 function show(req, res) {
   Game.findById(req.params.id, function(err, game) {
-    res.render('games/show', { game });
+    res.render('games/show', { game, title: 'Game Details' });
   });
-  // res.render('games/show', {
-  //   game: Game.findById(req.params.id)
-  // })
 }
 
 function deleteGame(req, res) {
@@ -64,30 +61,4 @@ function deleteGame(req, res) {
       res.redirect('/games');
     }
   );
-    // .then(function(remove) {
-    //   const game = remove.games.id(req.params.id);
-    //   if (!game.user.equals(req.user._id)) return res.redirect('/')
-    //   game.remove();
-    //   games.save().then(function() {
-    //     res.redirect('/');
-    //   })
-      // .catch(function(err) {
-      //   return next(err);
-      // });
-    // });
 }
-
-// function create(req, res) {
-//   // convert nowShowing's checkbox of nothing or "on" to boolean
-//   req.body.nowShowing = !!req.body.nowShowing;
-//   // ensure empty inputs are removed so that model's default values will work
-//   for (let key in req.body) {
-//     if (req.body[key] === '') delete req.body[key];
-//   }
-//   const game = new Game(req.body);
-//   game.save(function(err) {
-//     if (err) return res.redirect('/games/new');
-//     res.redirect(`/games/${game._id}`);
-//   });
-// }
-  
