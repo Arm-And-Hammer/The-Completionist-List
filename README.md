@@ -10,8 +10,8 @@ A list to keep all your games in order
 
 - JavaScript
 - HTML
-- MongoDB and Heroku
-- CRUD
+- MongoDB 
+- Heroku
 - Trello
 - Lucid Charts
 
@@ -19,5 +19,6 @@ A list to keep all your games in order
 
 # Next steps:
 
-- Add a completion percentage to the main page and game details.
+- Add a completion percentage to the game.
 - Refine styling.
+- Add what console the game is on.
