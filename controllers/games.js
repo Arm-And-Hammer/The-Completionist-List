@@ -25,7 +25,7 @@ function update(req, res) {
     {new: true},
     function(err, game) {
       if (err || !game) return res.redirect('/games');
-      res.redirect(`games/${game._id}`);
+      res.redirect(`/games/${game._id}`);
     }
   );
 }

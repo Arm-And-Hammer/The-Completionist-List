@@ -1,8 +1,38 @@
 body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas: 
+    "nav"
+    "main";
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: grey;
 }
 
 a {
   color: #00B7FF;
+}
+nav > a {
+  font: 25px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a:hover {
+  color: lime;
+  background-color: grey;
+}
+
+.title {
+  
+}
+
+#list {
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: flex-start;
+  align-items: left;
+}
+
+.login img {
+  height: 30px;
 }

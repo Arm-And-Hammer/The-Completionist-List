@@ -1,25 +1,21 @@
 <%- include('../partials/header') %>
 <table id="list">
   <thead>
-    <tr>
-      <th>Game name</th>
-      <th>Release Date</th>
-      <th>ESRB Rating</th>
-    </tr>
   </thead>
-  <tbody>
+  <tbody id="list">
     <% if (games.length) { %>
       
     <% games.forEach(function(g) { %>
-        
-    <a href="/games/<%= g._id %>"> <%= g.title %> </a>
-        
+    <ul>
+      <li><a id="list" href="/games/<%= g._id %>"> <%= g.title %> </a></li>
+    </ul>
     <% }); %>
       
     <% } else { %>
-    <h1>You dont own any games.</h1>
+    <h1 id="list">You dont own any games.</h1>
     <% } %>
   </tbody>
+
 </table>
   
 <%- include('../partials/footer') %>
