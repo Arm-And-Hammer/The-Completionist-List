@@ -16,7 +16,7 @@ A list to keep all your games in order
 - Lucid Charts
 
 [Visit The Completionist List](https://the-completionist-list.herokuapp.com/)
-
+[trello link](https://trello.com/b/Omtf3m3G/project-2)
 # Next steps:
 
 - Add a completion percentage to the game.
