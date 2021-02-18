@@ -22,10 +22,9 @@ a:hover {
   background-color: grey;
 }
 
-
-
 #list {
   font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 15px;
   display: flex;
   justify-content: flex-start;
   align-items: left;
