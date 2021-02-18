@@ -15,12 +15,14 @@ a {
   color: #00B7FF;
 }
 nav > a {
-  font: 25px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 35px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 a:hover {
-  color: lime;
+  color: darkblue;
   background-color: grey;
 }
+
+
 
 #list {
   font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
